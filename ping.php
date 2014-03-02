@@ -88,13 +88,13 @@ $xmlRpcPingUrls[] = 'http://blogsearch.google.sk/ping/RPC2';
 $xmlRpcPingUrls[] = 'http://blogsearch.google.tw/ping/RPC2';
 
 
-require_once( 'IXR_Lib.php' );
+require_once( 'IXR_Library.php' );
 
 function xmlRpcPing( $url ) {
     global $myBlogName, $myBlogUrl, $myBlogUpdateUrl, $myBlogRSSFeedUrl;
     $client = new IXR_Client( $url );
     $client->timeout = 3;
-    $client->useragent .= ' -- XPOZiO/1.0.0';
+    $client->useragent .= ' -- PingTool/1.0.0';
     $client->debug = false;
 
     if( $client->query( 'weblogUpdates.extendedPing', $myBlogName, $myBlogUrl, $myBlogUpdateUrl, $myBlogRSSFeedUrl ) )
